@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" styleClass="backgroundColor" stylesheets="@Contro.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gcm.gcm1.Controller">
+   <children>
+      <AnchorPane prefHeight="689.0" prefWidth="1294.0">
+         <children>
+            <BorderPane layoutX="-3.2" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane fx:id="mainform" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="211.0" styleClass="header" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="addPatientButton_form" layoutX="30.0" layoutY="137.0" mnemonicParsing="false" onAction="#changeForm" styleClass="Button" text="Add Patient" />
+                        <Button fx:id="dashboardButton_form" layoutX="30.0" layoutY="187.0" mnemonicParsing="false" onAction="#changeForm" styleClass="Button" text="Dashboard" />
+                        <Button fx:id="historyButton_form" layoutX="30.0" layoutY="238.0" mnemonicParsing="false" onAction="#changeForm" styleClass="Button" text="MedicalHistory" />
+                        <Button fx:id="appointmentButton_form" layoutX="30.0" layoutY="295.0" mnemonicParsing="false" onAction="#changeForm" styleClass="Button" text="Appointment" />
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="730.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="history_form" prefHeight="700.0" prefWidth="1092.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="433.0" layoutY="35.0" prefHeight="634.0" prefWidth="642.0">
+                                 <children>
+                                    <TableView fx:id="historyTableView" layoutX="14.0" layoutY="53.0" prefHeight="570.0" prefWidth="618.0">
+                                      <columns>
+                                        <TableColumn fx:id="historyPatientId_col" prefWidth="57.5999755859375" text="Id" />
+                                        <TableColumn fx:id="historyPatientName_col" prefWidth="145.60003662109375" text="Name" />
+                                          <TableColumn fx:id="historyPatientContact_col" prefWidth="108.79998779296875" text="Contact" />
+                                          <TableColumn fx:id="historyPatientInsertionDate_col" prefWidth="151.2000732421875" text="Insertion Date" />
+                                          <TableColumn fx:id="hisotryPatientAppointment_col" prefWidth="156.800048828125" text="Appointment" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="historySearchField" layoutX="14.0" layoutY="14.0" onKeyPressed="#searchHistory" onKeyReleased="#searchHistory" onKeyTyped="#searchHistory" prefHeight="26.0" prefWidth="618.0" promptText="Search" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="dashboard_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1096.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-267.20000000000005" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="209.0" maxWidth="-Infinity" prefHeight="622.0" prefWidth="870.0">
+                                 <children>
+                                    <TableView fx:id="patientTableView" layoutX="10.0" layoutY="49.0" onMouseClicked="#getItems" prefHeight="563.0" prefWidth="852.0">
+                                      <columns>
+                                          <TableColumn fx:id="patientId_col" prefWidth="46.39994812011719" text="Id" />
+                                        <TableColumn fx:id="patientName_col" prefWidth="173.60003662109375" text="Name" />
+                                        <TableColumn fx:id="patientAddress_col" prefWidth="140.0" text="Address" />
+                                          <TableColumn fx:id="patientContact_col" prefWidth="143.20001220703125" text="Contact" />
+                                          <TableColumn fx:id="patientAppointment_col" prefWidth="195.2000732421875" text="Appointment" />
+                                          <TableColumn fx:id="patientAge_col" prefWidth="150.40008544921875" text="Age" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="searchTextField" layoutX="10.0" layoutY="14.0" onKeyPressed="#searchPatient" onKeyReleased="#searchPatient" onKeyTyped="#searchPatient" prefHeight="26.0" prefWidth="702.0" promptText="Search" />
+                                    <ComboBox layoutX="724.0" layoutY="14.0" prefHeight="26.0" prefWidth="140.0" promptText="SearchBy" />
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="updatePatientButton" layoutX="48.0" layoutY="418.0" mnemonicParsing="false" onAction="#updatePatient" styleClass="Button" stylesheets="@Contro.css" text="Update" />
+                              <Button fx:id="deleteBtn" layoutX="48.0" layoutY="478.0" mnemonicParsing="false" onAction="#deletePatient" styleClass="Button" stylesheets="@Contro.css" text="Delete" />
+                              <TextField fx:id="updateNameField" layoutX="37.0" layoutY="186.0" promptText="Name" styleClass="TextField" stylesheets="@Contro.css" />
+                              <TextField fx:id="updateAddressField" layoutX="37.0" layoutY="235.0" promptText="Addres" styleClass="TextField" stylesheets="@Contro.css" />
+                              <TextField fx:id="updateContactField" layoutX="37.0" layoutY="285.0" promptText="Contact" styleClass="TextField" stylesheets="@Contro.css" />
+                              <DatePicker layoutX="24.0" layoutY="350.0" promptText="Next appointment" styleClass="date-picker" stylesheets="@Contro.css" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="addPatient_form" prefHeight="659.2" prefWidth="752.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TextField fx:id="nameField" layoutX="80.0" layoutY="116.0" promptText="Name" />
+                              <TextField fx:id="ageField" layoutX="80.0" layoutY="244.0" promptText="Age" />
+                              <TextField fx:id="addressField" layoutX="80.0" layoutY="156.0" promptText="Address" />
+                              <TextField fx:id="contactField" layoutX="80.0" layoutY="199.0" promptText="Contact" />
+                              <ComboBox fx:id="patientGender" layoutX="80.0" layoutY="286.0" prefWidth="150.0" promptText="Gender" />
+                              <TextArea fx:id="IllnessesArea" layoutX="293.0" layoutY="106.0" prefHeight="100.0" prefWidth="200.0" promptText="Illnesses" />
+                              <TextArea fx:id="allgeriesArea" layoutX="531.0" layoutY="106.0" prefHeight="100.0" prefWidth="200.0" promptText="Allergies" />
+                              <TextArea fx:id="previousMedicamentArea" layoutX="293.0" layoutY="220.0" prefHeight="100.0" prefWidth="200.0" promptText="Previous Medicament" />
+                              <TextArea fx:id="notesArea" layoutX="531.0" layoutY="220.0" prefHeight="100.0" prefWidth="200.0" promptText="Notes" />
+                              <TextArea fx:id="medicamentArea" layoutX="293.0" layoutY="350.0" prefHeight="100.0" prefWidth="200.0" promptText="Medicament" />
+                              <TextArea fx:id="instructionsArea" layoutX="531.0" layoutY="350.0" prefHeight="100.0" prefWidth="200.0" promptText="Instructions" />
+                              <Button fx:id="addPatientButton" layoutX="117.0" layoutY="387.0" mnemonicParsing="false" onAction="#addPatient" text="AddPatient" />
+                              <DatePicker fx:id="nextAppointmentField" layoutX="68.0" layoutY="329.0" promptText="Next Appointment" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="appointment_form" prefHeight="700.0" prefWidth="1092.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="264.0" layoutY="24.0" prefHeight="658.0" prefWidth="802.0">
+                                 <children>
+                                    <TextField fx:id="appointmentSearchField" layoutX="11.0" layoutY="14.0" onKeyTyped="#searchappointment" prefHeight="26.0" prefWidth="783.0" promptText="Search" />
+                                    <TableView fx:id="appointmentTableView" layoutX="14.0" layoutY="47.0" prefHeight="599.0" prefWidth="779.0">
+                                      <columns>
+                                          <TableColumn fx:id="appointmentPatientId_col" prefWidth="60.79998779296875" text="Id" />
+                                        <TableColumn fx:id="appointmentPatientName_col" prefWidth="150.4000244140625" text="Name" />
+                                        <TableColumn fx:id="appointmentPatientContact_col" prefWidth="155.20001220703125" text="Contact" />
+                                          <TableColumn fx:id="firstAppointmentDate_col" minWidth="0.0" prefWidth="183.19989013671875" text="AppintmentDate" />
+                                          <TableColumn fx:id="nextAppointmentDate_col" maxWidth="232.00006103515625" prefWidth="232.00006103515625" text="NextAppointment" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <DatePicker fx:id="appointmentNextField" layoutX="44.0" layoutY="304.0" promptText="NextAppointment" />
+                              <TextField fx:id="appointmentNameField" layoutX="57.0" layoutY="193.0" promptText="Name" />
+                              <TextField fx:id="appointmentContactField" layoutX="56.0" layoutY="244.0" promptText="Contact" />
+                              <Button fx:id="addAppointmentButton" layoutX="78.0" layoutY="373.0" mnemonicParsing="false" onAction="#addAppointment" text="AddAppointment" />
+                              <Button fx:id="updateAppointmentButton" layoutX="69.0" layoutY="426.0" mnemonicParsing="false" onAction="#updateAppointment" text="UpdateAppointment" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
